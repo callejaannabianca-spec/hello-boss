@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Hello Doc 💖</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(
+135deg,
+#ffb6c1,
+#ffcce0
+);
+overflow:hidden;
+position:relative;
+}
+
+.container{
+
+background:white;
+
+padding:40px 30px;
+
+border-radius:25px;
+
+text-align:center;
+
+width:85%;
+
+max-width:350px;
+
+box-shadow:
+0 5px 15px rgba(0,0,0,0.2);
+
+z-index:10;
+
+}
+
+h1{
+
+color:#ff4d88;
+
+margin-bottom:15px;
+
+font-size:28px;
+
+}
+
+p{
+
+color:#555;
+
+margin-bottom:25px;
+
+line-height:1.5;
+
+}
+
+.buttons{
+
+position:relative;
+
+height:120px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+button{
+
+padding:12px 20px;
+
+border:none;
+
+border-radius:12px;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:0.2s;
+
+}
+
+#yesBtn{
+
+background:#ff4d88;
+
+color:white;
+
+}
+
+#noBtn{
+
+background:#eee;
+
+color:#333;
+
+position:absolute;
+
+left:180px;
+
+}
+
+#result{
+
+display:none;
+
+margin-top:25px;
+
+font-size:24px;
+
+color:#ff4d88;
+
+animation:fadeIn 0.5s ease;
+
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(10px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.heart{
+
+position:absolute;
+
+font-size:20px;
+
+animation:float 6s linear infinite;
+
+opacity:0.8;
+
+}
+
+@keyframes float{
+
+from{
+transform:translateY(100vh);
+opacity:1;
+}
+
+to{
+transform:translateY(-10vh);
+opacity:0;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+Pa schedule ng f2f consult 💖
+</h1>
+
+<p>
+Ice cream date with me?
+</p>
+
+<div class="buttons">
+
+<button id="yesBtn">
+Yes, wala naman choice.
+</button>
+
+<button id="noBtn">
+Sige, try mo
+</button>
+
+</div>
+
+<div id="result">
+YIEEEE 💕
+</div>
+
+</div>
+
+<script>
+
+const noBtn =
+document.getElementById("noBtn");
+
+const noTexts = [
+
+"No",
+
+"Sure ka?",
+
+"Sige pindot pa",
+
+"Tatampo na ako",
+
+"Eto na paiyak na",
+
+"Last chance",
+
+"Umiyak na ako oh 😭",
+
+"Wag mo na pindutin",
+
+"Okay fine 😤",
+
+"Isa nalang pls",
+
+"Sad na ako",
+
+"Bat ka ganyan 😭",
+
+"HAHA ayaw mo talaga?"
+
+];
+
+let index = 0;
+
+function moveButton(){
+
+const x =
+Math.random() * 350 - 175;
+
+const y =
+Math.random() * 350 - 175;
+
+noBtn.style.transform =
+`translate(${x}px, ${y}px)`;
+
+index++;
+
+if(index < noTexts.length){
+
+noBtn.innerText =
+noTexts[index];
+
+}
+
+}
+
+noBtn.addEventListener(
+"mouseover",
+moveButton
+);
+
+noBtn.addEventListener(
+"click",
+moveButton
+);
+
+document
+.getElementById("yesBtn")
+.addEventListener("click",()=>{
+
+document
+.getElementById("result")
+.style.display="block";
+
+});
+
+function createHeart(){
+
+const heart =
+document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML = "💖";
+
+heart.style.left =
+Math.random() * 100 + "vw";
+
+heart.style.fontSize =
+(Math.random() * 20 + 10) + "px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},6000);
+
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
