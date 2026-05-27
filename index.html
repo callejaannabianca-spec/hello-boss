@@ -192,14 +192,36 @@ let index = 0;
 
 function moveButton(){
 
-const x =
-Math.random() * 350 - 175;
+const container =
+document.querySelector(".container");
 
-const y =
-Math.random() * 350 - 175;
+const containerRect =
+container.getBoundingClientRect();
 
-noBtn.style.transform =
-`translate(${x}px, ${y}px)`;
+const btnRect =
+noBtn.getBoundingClientRect();
+
+const maxX =
+container.offsetWidth -
+btnRect.width - 40;
+
+const maxY =
+container.offsetHeight -
+btnRect.height - 40;
+
+const randomX =
+Math.random() * maxX;
+
+const randomY =
+Math.random() * maxY;
+
+noBtn.style.position = "absolute";
+
+noBtn.style.left =
+randomX + "px";
+
+noBtn.style.top =
+randomY + "px";
 
 index++;
 
@@ -239,7 +261,7 @@ document.createElement("div");
 
 heart.classList.add("heart");
 
-heart.innerHTML = "💖";
+heart.innerHTML = "💜";
 
 heart.style.left =
 Math.random() * 100 + "vw";
