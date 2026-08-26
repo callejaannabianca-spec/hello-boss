@@ -86,6 +86,7 @@ button{
     color:#333;
     padding:14px 24px;
     position:relative;
+    z-index:20;
 }
 
 #result{
@@ -170,7 +171,7 @@ button{
     <div id="result">
 
         <img
-            src="IMG_0763.gif"
+            src="./IMG_0763.gif"
             alt="Surprise GIF"
             id="resultImage"
         >
@@ -207,45 +208,52 @@ let index = 0;
 
 function moveButton(){
 
-    const container =
-    document.querySelector(".container");
-
-    const containerRect =
-    container.getBoundingClientRect();
-
-    const btnRect =
-    noBtn.getBoundingClientRect();
-
-    const maxX =
-    container.offsetWidth -
-    btnRect.width - 40;
-
-    const maxY =
-    container.offsetHeight -
-    btnRect.height - 40;
-
-    const randomX =
-    Math.random() * maxX;
-
-    const randomY =
-    Math.random() * maxY;
-
-    noBtn.style.position = "absolute";
-
-    noBtn.style.left =
-    randomX + "px";
-
-    noBtn.style.top =
-    randomY + "px";
-
-    index++;
-
+    /* Change the text first */
     if(index < noTexts.length){
 
         noBtn.innerText =
         noTexts[index];
 
+        index++;
+
     }
+
+    /* Let the new text size update first */
+    setTimeout(()=>{
+
+        const padding = 20;
+
+        const maxX =
+        window.innerWidth -
+        noBtn.offsetWidth -
+        padding;
+
+        const maxY =
+        window.innerHeight -
+        noBtn.offsetHeight -
+        padding;
+
+        const randomX =
+        Math.max(
+            padding,
+            Math.random() * maxX
+        );
+
+        const randomY =
+        Math.max(
+            padding,
+            Math.random() * maxY
+        );
+
+        noBtn.style.position = "fixed";
+
+        noBtn.style.left =
+        randomX + "px";
+
+        noBtn.style.top =
+        randomY + "px";
+
+    },10);
 
 }
 
@@ -259,6 +267,17 @@ noBtn.addEventListener(
     moveButton
 );
 
+/* For mobile/iPad touchscreens */
+noBtn.addEventListener(
+    "touchstart",
+    function(e){
+
+        e.preventDefault();
+        moveButton();
+
+    }
+);
+
 document
 .getElementById("yesBtn")
 .addEventListener("click",()=>{
@@ -270,6 +289,9 @@ document
     document
     .querySelector(".buttons")
     .style.display="none";
+
+    /* Hide the escaped button too */
+    noBtn.style.display="none";
 
 });
 
