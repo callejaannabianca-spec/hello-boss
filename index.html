@@ -9,6 +9,19 @@
 
 <title>Hello Bossing</title>
 
+<!-- Instagram / Social Media Preview -->
+<meta property="og:title" content="Hello Bossing 👀">
+<meta property="og:description" content="Wanna see something cool? 😏">
+<meta property="og:image" content="https://hi-bossing.netlify.app/preview.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hi-bossing.netlify.app/">
+
+<!-- Optional Twitter Preview -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hello Bossing 👀">
+<meta name="twitter:description" content="Wanna see something cool? 😏">
+<meta name="twitter:image" content="https://hi-bossing.netlify.app/preview.jpg">
+
 <style>
 
 *{
@@ -126,6 +139,7 @@ button{
     font-size:20px;
     animation:float 6s linear infinite;
     opacity:0.8;
+    pointer-events:none;
 }
 
 @keyframes float{
@@ -208,7 +222,6 @@ let index = 0;
 
 function moveButton(){
 
-    /* Change the text first */
     if(index < noTexts.length){
 
         noBtn.innerText =
@@ -218,32 +231,33 @@ function moveButton(){
 
     }
 
-    /* Let the new text size update first */
     setTimeout(()=>{
 
         const padding = 20;
 
         const maxX =
-        window.innerWidth -
-        noBtn.offsetWidth -
-        padding;
+        Math.max(
+            0,
+            window.innerWidth -
+            noBtn.offsetWidth -
+            (padding * 2)
+        );
 
         const maxY =
-        window.innerHeight -
-        noBtn.offsetHeight -
-        padding;
+        Math.max(
+            0,
+            window.innerHeight -
+            noBtn.offsetHeight -
+            (padding * 2)
+        );
 
         const randomX =
-        Math.max(
-            padding,
-            Math.random() * maxX
-        );
+        padding +
+        Math.random() * maxX;
 
         const randomY =
-        Math.max(
-            padding,
-            Math.random() * maxY
-        );
+        padding +
+        Math.random() * maxY;
 
         noBtn.style.position = "fixed";
 
@@ -267,7 +281,6 @@ noBtn.addEventListener(
     moveButton
 );
 
-/* For mobile/iPad touchscreens */
 noBtn.addEventListener(
     "touchstart",
     function(e){
@@ -290,7 +303,6 @@ document
     .querySelector(".buttons")
     .style.display="none";
 
-    /* Hide the escaped button too */
     noBtn.style.display="none";
 
 });
