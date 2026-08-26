@@ -5,129 +5,139 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Matcha/Hojicha "hangout" 🍵🍃</title>
+<title>Hello Bossing</title>
 
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:"Aptos Narrow",sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Aptos Narrow",sans-serif;
 }
 
 body{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-background:linear-gradient(
-135deg,
-#819171,
-#cbd5c0
-);
-overflow:hidden;
-position:relative;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
+        135deg,
+        #819171,
+        #cbd5c0
+    );
+    overflow:hidden;
+    position:relative;
+    padding:20px;
 }
 
 .container{
-background:white;
-padding:40px 30px;
-border-radius:25px;
-text-align:center;
-width:85%;
-max-width:350px;
-box-shadow:
-0 5px 15px rgba(0,0,0,0.2);
-z-index:10;
+    background:white;
+    padding:40px 30px;
+    border-radius:25px;
+    text-align:center;
+    width:85%;
+    max-width:350px;
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.2);
+    z-index:10;
+    position:relative;
 }
 
 h1{
-color:#819171;
-margin-bottom:15px;
-font-size:28px;
+    color:#819171;
+    margin-bottom:15px;
+    font-size:28px;
 }
 
 p{
-color:#555;
-margin-bottom:25px;
-line-height:1.5;
+    color:#555;
+    margin-bottom:25px;
+    line-height:1.5;
 }
 
 .buttons{
-display:flex;
-align-items:center;
-gap:15px;
-margin-top:20px;  
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
 }
 
 button{
-padding:12px 20px;
-border:none;
-border-radius:12px;
-font-size:16px;
-cursor:pointer;
-transition:0.2s;
+    padding:12px 20px;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.2s;
 }
 
 #yesBtn{
-background:#819171;
-color:white;
-padding:14px 24px;
+    background:#819171;
+    color:white;
+    padding:14px 24px;
 }
 
 #noBtn{
-background:#eee;
-color:#333;
-position:absolute;
-padding:14px 24px;
-position:relative;
+    background:#eee;
+    color:#333;
+    padding:14px 24px;
+    position:relative;
 }
 
 #result{
-display:none;
-margin-top:25px;
-font-size:24px;
-color:#819171;
-animation:fadeIn 0.5s ease;
+    display:none;
+    margin-top:25px;
+    font-size:24px;
+    color:#819171;
+    animation:fadeIn 0.5s ease;
+}
 
+#resultImage{
+    width:100%;
+    max-width:280px;
+    border-radius:15px;
+    margin-bottom:15px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 @keyframes fadeIn{
 
-from{
-opacity:0;
-transform:translateY(10px);
-}
+    from{
+        opacity:0;
+        transform:translateY(10px);
+    }
 
-to{
-opacity:1;
-transform:translateY(0);
-}
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 
 }
 
 .heart{
-position:absolute;
-font-size:20px;
-animation:float 6s linear infinite;
-opacity:0.8;
+    position:absolute;
+    font-size:20px;
+    animation:float 6s linear infinite;
+    opacity:0.8;
 }
 
 @keyframes float{
 
-from{
-transform:translateY(100vh);
-opacity:1;
-}
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
 
-to{
-transform:translateY(-10vh);
-opacity:0;
-}
+    to{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
 
 }
 
@@ -139,29 +149,37 @@ opacity:0;
 
 <div class="container">
 
-<h1>
-Hello Sir.. watchadoin? 😏
-</h1>
+    <h1>Hello Bossing,</h1>
 
-<p>
-Matcha/Hojicha 'hangout'? 🍵🍃
-</p>
+    <p>
+        Wanna see something cool? 😏
+    </p>
 
-<div class="buttons">
+    <div class="buttons">
 
-<button id="yesBtn">
-Yes, wala naman choice.
-</button>
+        <button id="yesBtn">
+            Okay!
+        </button>
 
-<button id="noBtn">
-Sige, try mo click.
-</button>
+        <button id="noBtn">
+            What is it?
+        </button>
 
-</div>
+    </div>
 
-<div id="result">
-Yieeee 💕 gusto nya din.
-</div>
+    <div id="result">
+
+        <img
+            src="IMG_0763.gif"
+            alt="Surprise GIF"
+            id="resultImage"
+        >
+
+        <div>
+            This with you 👉🏼👈🏼 .
+        </div>
+
+    </div>
 
 </div>
 
@@ -172,110 +190,111 @@ document.getElementById("noBtn");
 
 const noTexts = [
 
-"No",
-"Sure ka ayaw?",
-"Luh! Parang ayaw pa",
-"Sure ka ayaw mo?",  
-"Wow! No mercy",
-"Mag cry na lang ako",
-"Last chance",
-"Umiyak na ako oh 😭",
-"Wag mo na pindutin",
-"Okay fine 😤",
-"Isa nalang pls",
-"Sad na ako",
-"Bat ka ganyan 😭",
-"HAHA ayaw mo talaga?"
+    "Bakit duda ka?",
+    "Parang ayaw mo e",
+    "Luh! Parang ayaw talaga",
+    "Sure ka ayaw mo?",
+    "Wow! No mercy",
+    "Mag cry na lang ako",
+    "Last chance",
+    "Sad na ako",
+    "Bat ka ganyan 😭",
+    "HAHA ayaw mo talaga?"
+
 ];
 
 let index = 0;
 
 function moveButton(){
 
-const container =
-document.querySelector(".container");
+    const container =
+    document.querySelector(".container");
 
-const containerRect =
-container.getBoundingClientRect();
+    const containerRect =
+    container.getBoundingClientRect();
 
-const btnRect =
-noBtn.getBoundingClientRect();
+    const btnRect =
+    noBtn.getBoundingClientRect();
 
-const maxX =
-container.offsetWidth -
-btnRect.width - 40;
+    const maxX =
+    container.offsetWidth -
+    btnRect.width - 40;
 
-const maxY =
-container.offsetHeight -
-btnRect.height - 40;
+    const maxY =
+    container.offsetHeight -
+    btnRect.height - 40;
 
-const randomX =
-Math.random() * maxX;
+    const randomX =
+    Math.random() * maxX;
 
-const randomY =
-Math.random() * maxY;
+    const randomY =
+    Math.random() * maxY;
 
-noBtn.style.position = "absolute";
+    noBtn.style.position = "absolute";
 
-noBtn.style.left =
-randomX + "px";
+    noBtn.style.left =
+    randomX + "px";
 
-noBtn.style.top =
-randomY + "px";
+    noBtn.style.top =
+    randomY + "px";
 
-index++;
+    index++;
 
-if(index < noTexts.length){
+    if(index < noTexts.length){
 
-noBtn.innerText =
-noTexts[index];
+        noBtn.innerText =
+        noTexts[index];
 
-}
+    }
 
 }
 
 noBtn.addEventListener(
-"mouseover",
-moveButton
+    "mouseover",
+    moveButton
 );
 
 noBtn.addEventListener(
-"click",
-moveButton
+    "click",
+    moveButton
 );
 
 document
 .getElementById("yesBtn")
 .addEventListener("click",()=>{
 
-document
-.getElementById("result")
-.style.display="block";
+    document
+    .getElementById("result")
+    .style.display="block";
+
+    document
+    .querySelector(".buttons")
+    .style.display="none";
 
 });
 
 function createHeart(){
 
-const heart =
-document.createElement("div");
+    const heart =
+    document.createElement("div");
 
-heart.classList.add("heart");
+    heart.classList.add("heart");
 
-heart.innerHTML = "🍵";
+    heart.innerHTML = "🍵";
 
-heart.style.left =
-Math.random() * 100 + "vw";
+    heart.style.left =
+    Math.random() * 100 + "vw";
 
-heart.style.fontSize =
-(Math.random() * 20 + 10) + "px";
+    heart.style.fontSize =
+    (Math.random() * 20 + 10) + "px";
 
-document.body.appendChild(heart);
+    document.body.appendChild(heart);
 
-setTimeout(()=>{
+    setTimeout(()=>{
 
-heart.remove();
+        heart.remove();
 
-},6000);
+    },6000);
 
 }
 
